@@ -1,0 +1,253 @@
+<!DOCTYPE html5>
+<html>
+
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <link rel="stylesheet" href="stylesheets/style.css" />
+  <link rel="stylesheet" href="stylesheets/loader.css" />
+  <link rel="stylesheet" href="stylesheets/popups.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;1,300&display=swap" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+
+  <script src="js/elements.js"></script>
+  <script src="js/app.js"></script>
+  <script src="js/alerts.js"></script>
+  <script src="https://unpkg.com/interactjs@1.10.11/dist/interact.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.0.0-rc.5/dist/html2canvas.min.js"></script>
+  <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
+
+
+  <!--Copyright (c) 2022 Jm
+  Permission is hereby granted, free of charge, to any person obtaining
+  a copy of this software and associated documentation files (the
+  "Software"), to deal in the Software without restriction, including
+  without limitation the rights to use, copy, modify, merge, publish,
+  distribute, sublicense, and/or sell copies of the Software, and to
+  permit persons to whom the Software is furnished to do so, subject to
+  the following conditions:
+
+  The above copyright notice and this permission notice shall be
+  included in all copies or substantial portions of the Software.
+
+  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+  EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+  MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
+  NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE
+  LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION
+  OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
+  WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+-->
+
+</head>
+<body>
+
+  <div id="app">
+    <script>
+      //Loading animation
+      $("body").append(
+        '<div style="" id="loadingDiv"><div class="loader">Loading...</div></div>'
+      );
+      $(window).on("load", function () {
+        setTimeout(removeLoader, 2000);
+      });
+      function removeLoader() {
+        $("#loadingDiv").fadeOut(500, function () {
+          $("#loadingDiv").remove();
+        });
+      }
+    </script>
+
+    <div class="main">
+      <!--This popup shows notifications-->
+      <div id="popupMessage" class="animated">
+        <span class="popuptext" id="myPopup">Notification</span>
+      </div>
+      <div id="img">
+
+        <script>
+          //Block right click in img div 
+          /*Long press is right click in mobile devices and some devices don't recognize 
+          long press and dragging from each others*/
+          $("#img").bind("contextmenu", function (e) {
+            return false;
+          });
+
+        </script>
+
+        <script>
+          //remove selected draggable element
+          $(document).on("click", "#deleteCBtn", function () {
+
+            //Create notification popup for 3 seconds
+            document.getElementById('myPopup').innerHTML = "The product has been deleted!";
+            $("#myPopup").fadeIn();
+            setTimeout(function () { $("#myPopup").fadeOut(); }, 3000);
+
+            $(this).parent("div").remove();
+
+          });
+
+        </script>
+      </div>
+    </div>
+    <!--here is imagebuttons: add image from file system, delete image, open menu, take a 
+    screenshot and help-button-->
+    <div class="right">
+      <button class="buttons" id="fileBtn">
+        <label for="files" class="custom-file"><span class="material-symbols-outlined">
+            add_photo_alternate
+          </span>
+        </label>
+        <input id="files" type="file" name="image" id="file" onclick="choose()" />
+      </button>
+
+      <button type="button" class="buttons" id="deleteBtn" onclick="deleteImg()">
+        <span class="material-symbols-outlined"> delete </span>
+      </button>
+
+      <button type="button" class="buttons" id="openNav" onclick="openNav()">
+        <span class="material-symbols-outlined"> checkroom </span>
+      </button>
+
+      <button id="screenS" class="buttons" onclick="screenshot()">
+        <span class="material-symbols-outlined"> file_download </span>
+      </button>
+      <div id="small_buttons">
+        <button type="button" class="buttons" id="question" onclick="openPopUp()">
+          <span class="material-symbols-outlined"> question_mark </span>
+        </button>
+      </div>
+    </div>
+
+    <!--Menu which includes all draggable clothes-->
+    <div class="scrollableDiv" id="mySidebar">
+      <div id="scrollableDivTitle">
+        <button id="closeNav" class="closeNav" onclick="closeNav()" style="position: sticky"><span
+            class="material-symbols-outlined">
+            close</span></button>
+      </div>
+      <button id="goBack" onclick="goBack()">Back</button>
+
+      <button class="elements" onclick="openWaterE()">Water</button>
+      <div class="wdiv" id="wdiv">
+        <ul class="imgList">
+          <img src="clothes/Water/Ainikki-blue.png" id="ainikki-blue" onclick="addClothes(this.id)" />
+        </ul>
+        <ul class="imgList">
+          <img src="clothes/Water/aitimeri,musta.png" id="mother-sea-black" onclick="addClothes(this.id)" />
+        </ul>
+        <ul class="imgList">
+          <img src="clothes/Water/korvis_sininen.png" id="ear-blue" onclick="addClothes(this.id)" />
+        </ul>
+        <ul class="imgList">
+          <img src="clothes/Water/sininen_poncho.png" id="poncho-blue" onclick="addClothes(this.id)" />
+        </ul>
+        <ul class="imgList">
+          <img src="clothes/Water/turkoosi_sea_goddess_mekko.png" id="sea-goddess-blue" onclick="addClothes(this.id)" />
+        </ul>
+      </div>
+
+      <button class="elements" onclick="openFireE()">Fire</button>
+      <div class="fdiv" id="fdiv">
+        <ul class="imgList">
+          <img src="clothes/Fire/aiti_meri_punainen.png" id="mother-sea-red" onclick="addClothes(this.id)" />
+        </ul>
+        <ul class="imgList">
+          <img src="clothes/Fire/heimo_auringonnousu_oranssi.png" id="heimo-orange" onclick="addClothes(this.id)" />
+        </ul>
+        <ul class="imgList">
+          <img src="clothes/Fire/pohjolan_amatsooni_mekko_pun.png" id="nordic-red" onclick="addClothes(this.id)" />
+        </ul>
+        <ul class="imgList">
+          <img src="clothes/Fire/pohjolan_valo_punainen.png" id="nordic-light-red" onclick="addClothes(this.id)" />
+        </ul>
+      </div>
+
+      <button class="elements" onclick="openWoodE()">Wood</button>
+      <div class="wooddiv" id="wooddiv">
+        <ul class="imgList">
+          <img src="clothes/Wood/lehti_korvis.png" id="leaf_green" onclick="addClothes(this.id)" />
+        </ul>
+        <ul class="imgList">
+          <img src="clothes/Wood/nordic_light_green.png" id="nordic-light-green" onclick="addClothes(this.id)" />
+        </ul>
+        <ul class="imgList">
+          <img src="clothes/Wood/sea_goddess_garland_sunny.png" id="sea-goddess-sunny" onclick="addClothes(this.id)" />
+        </ul>
+      </div>
+
+      <button class="elements" onclick="openMetalE()">Metal</button>
+      <div class="mdiv" id="mdiv">
+        <ul class="imgList">
+          <img src="clothes/Metal/alku_kult.png" id="alku-gold" onclick="addClothes(this.id)" />
+        </ul>
+        <ul class="imgList">
+          <img src="clothes/Metal/lahde_kult.png" id="source-gold" onclick="addClothes(this.id)" />
+        </ul>
+        <ul class="imgList">
+          <img src="clothes/Metal/lehti_hop.png" id="leaf-silver" onclick="addClothes(this.id)" />
+        </ul>
+        <ul class="imgList">
+          <img src="clothes/Metal/lehti_kult.png" id="leaf-gold" onclick="addClothes(this.id)" />
+        </ul>
+      </div>
+
+      <button class="elements" onclick="openEarthE()">Earth</button>
+      <div class="ediv" id="ediv">
+        <ul class="imgList">
+          <img src="clothes/Earth/heimo_korvakorut_puunhenki.png" id="heimo-ear-puuhenki"
+            onclick="addClothes(this.id)" />
+        </ul>
+        <ul class="imgList">
+          <img src="clothes/Earth/lahde_pronssi.png" id="source-bronze" onclick="addClothes(this.id)" />
+        </ul>
+        <ul class="imgList">
+          <img src="clothes/Earth/life_sun.jpg.png" id="life-ear-sun" onclick="addClothes(this.id)" />
+        </ul>
+        <ul class="imgList">
+          <img src="clothes/Earth/nodic_star-yellow.png" id="nordic-star-yellow" onclick="addClothes(this.id)" />
+        </ul>
+        <ul class="imgList">
+          <img src="clothes/Earth/sea_goddess_garland_sunny.png" id="sea-goddess-garland-sunny"
+            onclick="addClothes(this.id)" />
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="popup">
+    <button id="close" onclick="closePopUp()">&times;</button>
+    <h2>Welcome to use virtual fitting room!</h2>
+    <p>1. Add image</p>
+    <img src="animations/addImage.gif" alt="How to use virtual fitting room" style="width:99%;height:99%;">
+    <p>2. Add clothes</p>
+    <img src="animations/addClothes.gif" alt="How to use virtual fitting room" style="width:99%;height:99%;">
+    <p>3. Save!</p>
+    <img src="animations/saveScreenshot.gif" alt="How to use virtual fitting room" style="width:99%;height:99%;">
+  </div>
+
+  <div class="popupPrivacy" - id="popupPrivacy">
+    <h2>We care about your privacy!</h2>
+    <p>Application is collecting anonymous visitor data for research purposes.</br>
+      The study is being carried
+      out by Haaga-Helia University of Applied Sciences
+      as part of a wider development project supported by
+      the European Regional Development Fund in the Future
+      Touchless Shop project. The data collected for the
+      study will only be available to the researchers of
+      the project and will be destroyed no later than
+      September 1, 2024.</p>
+    <button id="allowPrivacyPolicy" onclick="allowPrivacyPolicy()">Allow</button>
+  </div>
+
+</body>
+
+</html>

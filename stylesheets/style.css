@@ -1,0 +1,457 @@
+html {
+  text-align: center;
+}
+
+body {
+  width: 95%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+h1 {
+  font-family: "Open Sans", sans-serif;
+}
+h2 {
+  font-family: "Open Sans", sans-serif;
+  font-style: italic;
+}
+
+.title {
+  text-align: center;
+}
+
+/*main -div have #img div inside of it*/
+.main {
+  float: left;
+  width: 80%;
+  height: 100%;
+  padding: 3px;
+
+}
+
+/*Div->Button menu on right side of the page*/
+.right {
+  display: inline-block;
+  align-items: center;
+  float: left;
+  width: 10%;
+  height: 100%;
+  border-color: transparent;
+}
+
+#question:hover {
+  background-color: rgba(105, 190, 119, 0.5);
+  border-color: rgba(105, 190, 119, 0.671);}
+  
+
+/*div where draggable divs are created*/
+#img {  
+  background-image: url("background.png");
+  position: absolute;
+  height: 97%;
+  width: 75%;
+  border: 2px dotted rgba(128, 128, 128, 0.333);
+  background-repeat: no-repeat;
+  background-size: contain;
+  border-radius: 4px;
+  background-position: center;
+  border-radius: 4px;
+  /* z-index: 1;*/
+}
+
+/*draggable and resizable images class*/
+.dragme {
+  border-radius: 2px;
+  padding: 3px;
+  margin: 3px;
+  height: 80px;
+  width: 80px;
+  margin-left: 50%;
+  margin-right: 50%;
+  position: absolute;
+  display: table;
+
+  /*--These are important for touch actions--*/
+  touch-action: none;
+  user-select: none;
+}
+.dragme:hover {
+  border: 1px dotted rgba(128, 128, 128, 0.555);
+
+}
+
+/*hover for draggable images*/
+.dragme:hover .rotation-handle, .rotation-handle:hover{
+  display: inline-block;
+  border: rgba(117, 128, 115, 0.717);
+  background-color: rgba(117, 128, 115, 0.717);
+}
+/*hover for draggable image buttons*/
+.dragme:hover #deleteCBtn, #deleteCBtn:hover{
+  display: inline-block;
+  border:rgba(117, 128, 115, 0.717);
+  background-color: rgba(117, 128, 115, 0.717);
+}
+
+.dragme img {
+  max-width: 100%;
+  max-height: 100%;
+  /*This makes image fit(stretch) to div size*/
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+
+}
+
+/* this is div for rotate images*/
+.rotation-handle {
+  padding: 3px 4px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  border-radius: 50%;
+  display: none;
+  position: absolute;
+  /* background-size: 100% 100%;
+  transform-origin: center center;*/
+  cursor: move;
+  /*These are important for touch actions*/
+  touch-action: none;
+  user-select: none;
+}
+
+
+/*This is draggable divs delete button*/
+#deleteCBtn {
+  padding: 3px 4px;
+  position: fixed;
+  top: 0;
+  right: 0;
+  border-radius: 50%;
+  border: transparent;
+  background-color: transparent;
+  cursor: pointer;
+  display: none;
+  position: absolute;
+}
+/*elements buttons in menu*/
+.elements {
+  padding-top: 10px;
+  border-color: transparent;
+  margin: 0 auto 10px ;
+  display: block;
+  background-color: #adabab; 
+  color: white;
+  border-radius: 3px;
+  border: none;
+  padding: 15px 0px 15px 0px;
+  width: 166px;
+  text-align: center;
+  text-decoration: none;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.elements button {
+  justify-items: center;
+}
+
+.elements:active {
+  border: 1px solid rgba(128, 128, 128, 0.559);
+}
+
+.elements img {
+  width: 100%;
+  height: 100%;
+}
+
+/* .imgList is list of images (clothes)*/
+.imgList {
+  width: 100%;
+  padding: 1px;
+}
+
+.imgList img {
+  width: 100%;
+  height: auto;
+  overflow-x: hide;
+  padding-left: 0px;
+}
+
+img {
+  border-color: transparent;
+  border: 0px solid transparent;
+}
+
+/*.buttons class is buttons in .right-div*/
+.buttons {
+  border: 1.5px solid rgba(112, 112, 112, 0.192);
+  background-color: rgba(209, 209, 209, 0.651);
+  border-radius: 50%;
+  cursor: pointer;
+  align-items: center;
+  display: block;
+  width: 60px;
+  height: 60px;
+  margin: 0 auto 5px 0;
+  cursor: pointer;
+  z-index: 5;
+}
+
+.buttons:hover {
+  background-color: rgba(105, 190, 119, 0.5);
+  border-color: rgba(105, 190, 119, 0.671);
+}
+
+/*#question-button is in .right-class div*/
+#question {
+  border: transparent;
+  background-color: transparent;
+  border-radius: 50%;
+  cursor: pointer;
+  display: block;
+  bottom: 0px;
+  z-index: 5;
+}
+/*This is just shity test-- not working
+.buttons.testi {
+  font-size: 10px;
+}*/
+
+/*Open and close div with clothes*/
+.scrollableDiv {
+  height: 97%;
+  width: 0%;
+  position: absolute;
+  z-index: 1;
+  top: 5;
+  float: right;
+  background-color: rgba(128, 128, 128, 0.205);
+  backdrop-filter: blur(3px);
+  overflow-x: hidden;
+  transition: 0.5s;
+}
+
+#openNav {
+  cursor: pointer;
+}
+
+/*Button in top of clothes list*/
+#closeNav {
+  background-color: transparent;
+  border: none;
+  padding-bottom:10px;
+  margin: 0 auto 0;
+  display: block;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 2px;
+}
+
+#scrollableDivTitle button {
+  margin-top: 0;
+}
+
+/*Back- button*/
+#goBack {
+  display: none;
+  margin: 0 auto 0;
+  border-radius: 3px;
+  color: white;
+  border: 1px solid rgba(128, 128, 128, 0.548);
+  background-color: rgba(128, 128, 128, 0.358);;
+}
+
+/*Class of popups*/
+.material-symbols-outlined {
+  color: rgba(116, 116, 116, 0.651);
+}
+
+.material-symbols-outlined.drag{
+  color: rgb(255, 255, 255);
+}
+/*--------------For mobile devices:------------------- */
+@media only screen and (max-width: 767px) {
+  html {
+    
+  }
+  body {
+    height: 99%;
+
+  }
+  
+  .right,
+  .main {
+    margin-left: auto;
+    margin-right: auto;
+  }
+/*Button menu on right side of the page*/
+  .right {
+    order: 2;
+    width: 100%;
+    height: 10%;
+    margin-top: -60px;
+    z-index: 900;
+  }
+
+  .right button {
+    margin: 0 auto 5px;
+    display: inline-block;
+  }
+  /*#question-button is in .right-class div*/
+#question {
+  border: transparent;
+  background-color: transparent;
+  border-radius: 50%;
+  cursor: pointer;
+  display: block;
+  position: absolute;
+  top: 0px;
+  right: 0;
+  z-index: 5;
+}
+#question:hover {
+  background-color: rgba(105, 190, 119, 0.5);
+  border-color: rgba(105, 190, 119, 0.671);}
+  
+  .main,
+  #img {
+    order: 1;
+    width: 97%;
+    height: 99%;
+  }
+
+  .buttons {
+    width: 60px !important;
+    height: 60px !important;
+    border-radius: 50% !important;
+    margin: 0 auto 5px 0;
+    cursor: pointer;
+    position: relative;
+    z-index: 700;
+    display: flex;
+  }
+
+  .buttons:hover {
+    background-color: rgba(105, 190, 119, 0.5);
+    border-color: rgba(105, 190, 119, 0.671);
+  }
+
+  .dragme {
+    object-fit: scale-down;
+    height: 100px;
+    width:100px;
+    max-width: 100%;
+    left: 10%;
+
+  }
+
+  .scrollableDiv {
+    height: 97%;
+    width: 0%;
+    position: absolute;
+    z-index: 900;
+    top: 5px;
+    float: left;
+    background-color: rgba(128, 128, 128, 0.123);
+    overflow-x: hidden;
+    transition: 0.5s;
+  }
+
+  .imgList ul {
+    width: 100%;
+    height: auto;
+    overflow-x: hide;
+    padding: 1px;
+  }
+
+  .elements {
+  padding-top: 5px;
+  border-color: transparent;
+  margin: 0 auto 10px ;
+  display: block;
+  background-color: #adabab; 
+  color: white;
+  border-radius: 3px;
+  border: none;
+  text-align: 0 auto 0;
+  text-decoration: none;
+  font-size: 12px;
+  max-width: 90%;
+  }
+}
+
+input[type="file"] {
+  display: none;
+}
+/*
+.rotation-handle {
+  These are important for touch actions*/
+/*  touch-action: none;
+  user-select: none;
+}*/
+
+/*Scrollbar style*/
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: rgba(168, 168, 168, 0.692);
+  border-radius: 4px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(117, 116, 116, 0.795);
+  border-radius: 4px;
+}
+
+
+/*element divs for clothes*/
+#wdiv {
+  display: none;
+}
+
+#fdiv {
+  display: none;
+}
+
+#wooddiv {
+  display: none;
+}
+
+#ediv {
+  display: none;
+}
+
+#mdiv {
+  display: none;
+}
+
+#addImg {
+  height: 50px;
+  width: 50px;
+}
+
+.fa-solid.fa-shirt {
+ 
+}
+svg {
+  fill: rgba(116, 116, 116, 0.651);
+
+}
+

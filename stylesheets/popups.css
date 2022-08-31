@@ -1,0 +1,242 @@
+/* Popup window*/
+.popup {
+  background-color: #d2d2d2b2;
+  width: 70%;
+  max-height: 90%;
+  padding: 30px 40px;
+  position: absolute;
+  transform: translate(-50%, -50%);
+  left: 50%;
+  top: 50%;
+  border-radius: 8px;
+  display: none;
+  font-family: "Poppins", sans-serif;
+  text-align: center;
+  z-index: 800;
+  overflow: scroll;
+
+}
+.popup img {
+  max-width: 100%;
+  max-height: auto;
+}
+
+.popup button {
+  display: block;
+  margin: 0 0 20px auto;
+  background-color: transparent;
+  font-size: 30px;
+  color: #ffffff;
+  background: #03549a;
+  border-radius: 100%;
+  width: 40px;
+  height: 40px;
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
+.popup h2 {
+  margin-top: -20px;
+}
+.popup p {
+  font-size: 14px;
+  text-align: justify;
+  margin: 20px 0;
+  line-height: 25px;
+}
+#popupButton {
+  height: 40px;
+  width: 40px;
+  background-color: transparent;
+  border-color: transparent;
+  border-radius: 50%;
+  cursor: pointer;
+  margin-left: 0px;
+}
+.popupButton:hover {
+  background-color: rgba(122, 122, 122, 0.244);
+}
+iframe {
+  display: block;
+  margin: 0 auto;
+}
+
+/*Privacy Policy popup*/
+.popupPrivacy {
+  background-color: #d2d2d2b2;
+  width: 99%;
+  height: 99%;
+  padding: 30px 40px;
+  position: absolute;
+  transform: translate(-50%, -50%);
+  left: 50%;
+  top: 50%;
+  border-radius: 8px;
+  display: none;
+  font-family: "Poppins", sans-serif;
+  text-align: center;
+  z-index: 800;
+}
+.popupPrivacy button {
+  display: block;
+  margin: 0 auto 0;
+  background-color: transparent;
+  font-size: 30px;
+  color: #ffffff;
+  background: #03549a;
+  border-radius: 3px;
+  width: 100px;
+  height: 40px;
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
+
+/* Pop up form window*/
+
+.popupRate {
+  background-color: #d2d2d2b2;
+  width: 600px;
+  padding: 30px 40px;
+  position: absolute;
+  transform: translate(-50%, -50%);
+  left: 50%;
+  top: 50%;
+  border-radius: 8px;
+  display: none;
+  font-family: "Poppins", sans-serif;
+  text-align: center;
+  z-index: 700;
+}
+
+.popupRate button {
+  display: block;
+  margin: 0 0 20px auto;
+  background-color: transparent;
+  font-size: 30px;
+  color: #ffffff;
+  background: #03549a;
+  border-radius: 100%;
+  width: 40px;
+  height: 40px;
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
+.popupRate h2 {
+  margin-top: -20px;
+}
+.popupRate p {
+  font-size: 14px;
+  text-align: justify;
+  margin: 20px 0;
+  line-height: 25px;
+}
+.col-25 {
+  float: left;
+  width: 25%;
+  margin-top: 6px;
+}
+
+.col-75 {
+  float: left;
+  width: 75%;
+  margin-top: 6px;
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+input[type="text"],
+select,
+textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  resize: vertical;
+}
+
+label {
+  padding: 12px 12px 12px 12px;
+  display: inline-block;
+}
+
+input[type="submit"] {
+  background-color: #04aa6d;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  float: right;
+}
+
+@media only screen and (max-width: 767px) {
+  .popup {
+    background-color: #d2d2d2b2;
+    max-width: 99%;
+    padding: 30px 40px;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    left: 50%;
+    top: 50%;
+    border-radius: 8px;
+    display: none;
+    font-family: "Poppins", sans-serif;
+    text-align: center;
+    z-index: 800;
+  }
+  iframe {
+    display: block;
+    margin: 0 auto;
+    max-width: 90%;
+  }
+  .popupPrivacy {
+    background-color: #d2d2d2b2;
+    width: 99%;
+    height:99%;
+    padding: 30px 40px;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    left: 50%;
+    top: 50%;
+    border-radius: 8px;
+    display: none;
+    font-family: "Poppins", sans-serif;
+    text-align: center;
+    z-index: 800;
+  }
+}
+
+/*Popup notification for small messages */
+#popupMessage {
+  position: absolute;
+  display: inline-block;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+
+}
+
+#popupMessage .popuptext {
+  display: none;
+  width: 160px;
+  background-color: rgba(50, 110, 63, 0.607);
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 8px 20px 8px 20px;
+  position: absolute;
+  z-index: 900;
+  left: 50%;
+  margin-left: -80px;
+  margin-top: 20px;
+
+}
