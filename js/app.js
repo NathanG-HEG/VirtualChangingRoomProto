@@ -1,3 +1,32 @@
+/*
+Const
+ */
+
+const fileBtn = document.getElementById("fileBtn");
+const deleteBtn = document.getElementById("deleteBtn");
+const open = document.getElementById("openNav");
+const screenS = document.getElementById("screenS");
+const background = document.getElementById("img");
+const question = document.getElementById("question");
+let pMarginLeft = 0;
+let pMarginTop = 0;
+
+initScreen();
+deleteBtn.style.display = "none";
+open.style.display = "none";
+screenS.style.display = "none";
+background.style.display = "none";
+
+function initScreen() {
+    // store in memory previous style
+    pMarginLeft = fileBtn.style.marginLeft;
+    pMarginTop = question.style.marginTop;
+    x = 0;
+    console.log(x);
+
+    fileBtn.style.marginLeft = "-450px";
+    question.style.marginTop = "-"+fileBtn.style.height;
+}
 
 // to screenshot the div
 function screenshot() {
@@ -39,6 +68,15 @@ function choose() {
         reader.readAsDataURL(this.files[0]);
     });
     console.log("ulkona kuvan lisäyksestä");
+
+    setButtons();
+}
+
+function setButtons(){
+    deleteBtn.style.display = "block";
+    open.style.display = "block";
+    screenS.style.display = "block";
+    fileBtn.style.marginLeft = pMarginLeft;
 }
 
 //remove background image
@@ -49,7 +87,13 @@ function deleteImg() {
     //Create popup for 3 seconds
     document.getElementById('myPopup').innerHTML = "Your image has been removed";
     $("#myPopup").fadeIn();
-    setTimeout(function () { $("#myPopup").fadeOut(); }, 3000);
+    setTimeout(function () {
+        $("#myPopup").fadeOut();
+    }, 3000);
+
+    deleteBtn.style.display = "none";
+    open.style.display = "none";
+    screenS.style.display = "none";
 }
 
 //Add clothes from sidemenu buttons
@@ -63,7 +107,7 @@ function addClothes(id) {
             // resize from all edges and corners
             allowFrom: ".dragme",
             //specifies the edges of the element which can be resized
-            edges: { left: true, right: true, bottom: true, top: true },
+            edges: {left: true, right: true, bottom: true, top: true},
 
             modifiers: [
                 // keep the edges inside the parent
@@ -72,13 +116,13 @@ function addClothes(id) {
                     restriction: "parent",
                 }),
                 interact.modifiers.restrictSize({
-                    min: { width: 20, height: 20 },
-                    max: { width: 400, height: 600 },
+                    min: {width: 20, height: 20},
+                    max: {width: 400, height: 600},
                 }),
                 interact.modifiers.restrict({
                     restriction: "parent",
                     endOnly: true,
-                    elementRect: { left: 0, right: 0, top: 1, bottom: 1 },
+                    elementRect: {left: 0, right: 0, top: 1, bottom: 1},
                 }),
             ],
             listeners: {
@@ -102,7 +146,7 @@ function addClothes(id) {
                     let x = parseFloat(event.target.getAttribute("data-x")) || 0;
                     let y = parseFloat(event.target.getAttribute("data-y")) || 0;
                     let angle = parseFloat(event.target.getAttribute("data-angle")) || 0;
-                    
+
                     //past version target was path[0]. Changet it to target
                     //--> path[0] didn't work with Firefox
                     if (event._interaction.downEvent.target.classList.contains("rotation-handle")) {
@@ -125,7 +169,7 @@ function addClothes(id) {
                         "px," + event.target.getAttribute("data-y") + "px) rotate(" + angle + "rad" + ")";
                 },
                 end(event) {
-                    if (event._interaction.downEvent.target.classList.contains("rotation-handle") ) {
+                    if (event._interaction.downEvent.target.classList.contains("rotation-handle")) {
                         event.target.dataset.angle = getDragAngle(event);
                     }
                 },
@@ -133,7 +177,7 @@ function addClothes(id) {
         })
 
         .draggable({
-            listeners: { move: window.dragMoveListener },
+            listeners: {move: window.dragMoveListener},
             inertia: true,
             modifiers: [
                 interact.modifiers.restrictRect({
@@ -143,7 +187,7 @@ function addClothes(id) {
                 interact.modifiers.restrict({
                     restriction: "parent",
                     endOnly: true,
-                    elementRect: { left: 0, right: 0, top: 1, bottom: 1 },
+                    elementRect: {left: 0, right: 0, top: 1, bottom: 1},
                 }),
             ],
         });
@@ -162,7 +206,7 @@ function addClothes(id) {
                 restriction: "parent",
                 endOnly: true,
 
-                elementRect: { left: 10, right: 0, top: 1, bottom: 1 },
+                elementRect: {left: 10, right: 0, top: 1, bottom: 1},
             }),
         ],
         // enable autoScroll
@@ -177,14 +221,14 @@ function addClothes(id) {
                 var textEl = event.target.querySelector("p");
 
                 textEl &&
-                    (textEl.textContent =
-                        "moved a distance of " +
-                        Math.sqrt(
-                            (Math.pow(event.pageX - event.x0, 2) +
-                                Math.pow(event.pageY - event.y0, 2)) |
-                            0
-                        ).toFixed(2) +
-                        "px");
+                (textEl.textContent =
+                    "moved a distance of " +
+                    Math.sqrt(
+                        (Math.pow(event.pageX - event.x0, 2) +
+                            Math.pow(event.pageY - event.y0, 2)) |
+                        0
+                    ).toFixed(2) +
+                    "px");
             },
         },
     });
@@ -208,17 +252,17 @@ function addClothes(id) {
 
             // call this function on every dragend event
             end(event) {
-               var textEl = event.target.querySelector("p");
+                var textEl = event.target.querySelector("p");
 
                 textEl &&
-                    (textEl.textContent =
-                        "moved a distance of " +
-                        Math.sqrt(
-                            (Math.pow(event.pageX - event.x0, 2) +
-                                Math.pow(event.pageY - event.y0, 2)) |
-                            0
-                        ).toFixed(2) +
-                        "px");
+                (textEl.textContent =
+                    "moved a distance of " +
+                    Math.sqrt(
+                        (Math.pow(event.pageX - event.x0, 2) +
+                            Math.pow(event.pageY - event.y0, 2)) |
+                        0
+                    ).toFixed(2) +
+                    "px");
             },
         },
     });
@@ -246,14 +290,14 @@ function addClothes(id) {
             parseFloat(event.target.dataset.angle) || 0
         );
 
-        
-        target.getAttribute("data-y") +
-            "px) rotate(" +
-            event.target.getAttribute("data-angle") +
-            "rad" +
-            ")";
 
-       target.style.transform =
+        target.getAttribute("data-y") +
+        "px) rotate(" +
+        event.target.getAttribute("data-angle") +
+        "rad" +
+        ")";
+
+        target.style.transform =
             "translate(" +
             target.getAttribute("data-x") +
             "px, " +
@@ -268,6 +312,7 @@ function addClothes(id) {
         t.parentNode.appendChild(target);
 
     }
+
     window.dragMoveListener = dragMoveListener;
 
     //draggable method is also used to implement rotation
@@ -293,8 +338,8 @@ function addClothes(id) {
             var angle = getDragAngle(event);
 
             // update position and angle
-            box.style.transform = "translate(" + pos.x + "px, " + 
-            pos.y + "px) rotate(" + angle + "rad" +")";
+            box.style.transform = "translate(" + pos.x + "px, " +
+                pos.y + "px) rotate(" + angle + "rad" + ")";
         },
 
         // call this function on every dragend event
@@ -313,11 +358,11 @@ function addClothes(id) {
         var center = {
             x: parseFloat(box.parentElement.getAttribute("data-center-x")) || 0,
             y: parseFloat(box.parentElement.getAttribute("data-center-y")) || 0,
-           
-        }; 
-       
+
+        };
+
         var angle = Math.atan2(center.y - event.clientY, center.x - event.clientX);
-        return angle - startAngle;   
+        return angle - startAngle;
     }
 }
 
