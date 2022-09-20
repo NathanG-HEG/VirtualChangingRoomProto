@@ -12,20 +12,19 @@ let pMarginLeft = 0;
 let pMarginTop = 0;
 
 initScreen();
-deleteBtn.style.display = "none";
-open.style.display = "none";
-screenS.style.display = "none";
-background.style.display = "none";
+
 
 function initScreen() {
+    deleteBtn.style.display = "none";
+    open.style.display = "none";
+    screenS.style.display = "none";
+    background.style.display = "none";
+
     // store in memory previous style
     pMarginLeft = fileBtn.style.marginLeft;
     pMarginTop = question.style.marginTop;
-    x = 0;
-    console.log(x);
 
-    fileBtn.style.marginLeft = "-450px";
-    question.style.marginTop = "-"+fileBtn.style.height;
+    fileBtn.style.marginLeft = "-400px";
 }
 
 // to screenshot the div
@@ -91,9 +90,7 @@ function deleteImg() {
         $("#myPopup").fadeOut();
     }, 3000);
 
-    deleteBtn.style.display = "none";
-    open.style.display = "none";
-    screenS.style.display = "none";
+    initScreen();
 }
 
 //Add clothes from sidemenu buttons

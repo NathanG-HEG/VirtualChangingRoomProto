@@ -36,6 +36,7 @@ h2 {
 
 /*Div->Button menu on right side of the page*/
 .right {
+    margin-top: 5%;
     display: inline-block;
     align-items: center;
     float: left;
