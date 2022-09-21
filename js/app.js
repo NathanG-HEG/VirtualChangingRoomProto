@@ -8,6 +8,7 @@ const open = document.getElementById("openNav");
 const screenS = document.getElementById("screenS");
 const background = document.getElementById("img");
 const question = document.getElementById("question");
+const rightDiv = document.getElementById("rightDiv");
 let pMarginLeft = 0;
 let pMarginTop = 0;
 
@@ -21,10 +22,21 @@ function initScreen() {
     background.style.display = "none";
 
     // store in memory previous style
-    pMarginLeft = fileBtn.style.marginLeft;
-    pMarginTop = question.style.marginTop;
+    pMarginLeft = rightDiv.style.marginLeft;
+    pMarginTop = rightDiv.style.marginTop;
 
-    fileBtn.style.marginLeft = "-400px";
+    rightDiv.style.marginLeft = "-400px";
+    rightDiv.style.marginTop = "20%";
+}
+
+function setButtons() {
+    background.style.display = "block";
+    deleteBtn.style.display = "block";
+    open.style.display = "block";
+    screenS.style.display = "block";
+    rightDiv.style.marginLeft = pMarginLeft;
+    rightDiv.style.marginTop = pMarginTop;
+
 }
 
 // to screenshot the div
@@ -66,16 +78,9 @@ function choose() {
         });
         reader.readAsDataURL(this.files[0]);
     });
-    console.log("ulkona kuvan lisäyksestä");
+    console.log(background.style.backgroundImage);
 
     setButtons();
-}
-
-function setButtons(){
-    deleteBtn.style.display = "block";
-    open.style.display = "block";
-    screenS.style.display = "block";
-    fileBtn.style.marginLeft = pMarginLeft;
 }
 
 //remove background image

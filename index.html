@@ -18,7 +18,7 @@
 		  integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
 
 	<script src="js/elements.js"></script>
-	<!--	<script src="js/alerts.js"></script>-->
+<!--	<script src="js/alerts.js"></script>-->
 	<script src="https://unpkg.com/interactjs@1.10.11/dist/interact.min.js"></script>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/html2canvas@1.0.0-rc.5/dist/html2canvas.min.js"></script>
@@ -50,21 +50,21 @@
 <body>
 
 <div id="app">
-	<!--	<script>-->
-	<!--        //Loading animation-->
-	<!--        $("body").append(-->
-	<!--            '<div style="" id="loadingDiv"><div class="loader">Loading...</div></div>'-->
-	<!--        );-->
-	<!--        $(window).on("load", function () {-->
-	<!--            setTimeout(removeLoader, 0);-->
-	<!--        });-->
+		<script>
+	        //Loading animation
+	        $("body").append(
+	            '<div style="" id="loadingDiv"><div class="loader">Loading...</div></div>'
+	        );
+	        $(window).on("load", function () {
+	            setTimeout(removeLoader, 500);
+	        });
 
-	<!--        function removeLoader() {-->
-	<!--            $("#loadingDiv").fadeOut(0, function () {-->
-	<!--                $("#loadingDiv").remove();-->
-	<!--            });-->
-	<!--        }-->
-	<!--	</script>-->
+	        function removeLoader() {
+	            $("#loadingDiv").fadeOut(0, function () {
+	                $("#loadingDiv").remove();
+	            });
+	        }
+		</script>
 
 	<div class="main">
 		<!--This popup shows notifications-->
@@ -103,14 +103,14 @@
 	</div>
 	<!--here is imagebuttons: add image from file system, delete image, open menu, take a
 	screenshot and help-button-->
-	<div class="right">
+	<div id="rightDiv" class="right">
 		<button class="buttons" id="fileBtn" onclick="choose()">
 			<label for="files" class="custom-file">
 				<span class="material-symbols-outlined">
             		add_photo_alternate
           		</span>
 			</label>
-			<input id="files" type="file" name="image" id="file"/>
+			<input size="200%" id="files" type="file" name="image" id="file"/>
 		</button>
 
 		<button type="button" class="buttons" id="deleteBtn" onclick="deleteImg()">
