@@ -6,7 +6,12 @@ body {
   width: 95%;
   margin-left: auto;
   margin-right: auto;
+  background-image: url("background.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  ;
 }
+
 
 * {
   box-sizing: border-box;
@@ -15,6 +20,7 @@ body {
 h1 {
   font-family: "Open Sans", sans-serif;
 }
+
 h2 {
   font-family: "Open Sans", sans-serif;
   font-style: italic;
@@ -24,43 +30,68 @@ h2 {
   text-align: center;
 }
 
+
 /*main -div have #img div inside of it*/
 .main {
-  float: left;
-  width: 80%;
-  height: 100%;
-  padding: 3px;
+  background: url("main-background.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  position: absolute;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 128px;
+  width: 50%;
+  height: 95%;
+  margin: 2em 0 2em 5em;
+  display: flex;
+  align-items: center;
+  justify-content: center
+}
 
+.main__inner__box {
+  background: url("model.jpg");
+  position: absolute;
+  background-size: cover;
+  width: 95%;
+  height: 95%;
+  border-radius: 116px;
+  opacity: 70%;
 }
 
 /*Div->Button menu on right side of the page*/
 .right {
-  display: inline-block;
-  align-items: center;
-  float: left;
-  width: 10%;
-  height: 100%;
-  border-color: transparent;
+  float: right;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  margin: 3em 6em 3em 3em;
 }
+
+.title__box {
+  background-image: url(main-background.jpg);
+  padding: 2em 5em 2em 5em;
+  mix-blend-mode: normal;
+  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+  border-radius: 135.5px;
+}
+
 
 #question:hover {
   background-color: rgba(105, 190, 119, 0.5);
-  border-color: rgba(105, 190, 119, 0.671);}
-  
+  border-color: rgba(105, 190, 119, 0.671);
+}
+
 
 /*div where draggable divs are created*/
-#img {  
-  background-image: url("background.png");
+#img {
   position: absolute;
   height: 97%;
-  width: 75%;
-  border: 2px dotted rgba(128, 128, 128, 0.333);
+  width: 70%;
   background-repeat: no-repeat;
   background-size: contain;
   border-radius: 4px;
   background-position: center;
   border-radius: 4px;
-  /* z-index: 1;*/
 }
 
 /*draggable and resizable images class*/
@@ -79,21 +110,25 @@ h2 {
   touch-action: none;
   user-select: none;
 }
+
 .dragme:hover {
   border: 1px dotted rgba(128, 128, 128, 0.555);
 
 }
 
 /*hover for draggable images*/
-.dragme:hover .rotation-handle, .rotation-handle:hover{
+.dragme:hover .rotation-handle,
+.rotation-handle:hover {
   display: inline-block;
   border: rgba(117, 128, 115, 0.717);
   background-color: rgba(117, 128, 115, 0.717);
 }
+
 /*hover for draggable image buttons*/
-.dragme:hover #deleteCBtn, #deleteCBtn:hover{
+.dragme:hover #deleteCBtn,
+#deleteCBtn:hover {
   display: inline-block;
-  border:rgba(117, 128, 115, 0.717);
+  border: rgba(117, 128, 115, 0.717);
   background-color: rgba(117, 128, 115, 0.717);
 }
 
@@ -140,13 +175,14 @@ h2 {
   display: none;
   position: absolute;
 }
+
 /*elements buttons in menu*/
 .elements {
   padding-top: 10px;
   border-color: transparent;
-  margin: 0 auto 10px ;
+  margin: 0 auto 10px;
   display: block;
-  background-color: #adabab; 
+  background-color: #adabab;
   color: white;
   border-radius: 3px;
   border: none;
@@ -192,16 +228,18 @@ img {
 /*.buttons class is buttons in .right-div*/
 .buttons {
   border: 1.5px solid rgba(112, 112, 112, 0.192);
-  background-color: rgba(209, 209, 209, 0.651);
+  background-color: white;
   border-radius: 50%;
   cursor: pointer;
-  align-items: center;
-  display: block;
-  width: 60px;
-  height: 60px;
-  margin: 0 auto 5px 0;
+  width: 93px;
+  height: 130px;
   cursor: pointer;
-  z-index: 5;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 2em 0 0 10em;
+  margin-left: 10em;
+  box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
 
 .buttons:hover {
@@ -219,6 +257,7 @@ img {
   bottom: 0px;
   z-index: 5;
 }
+
 /*This is just shity test-- not working
 .buttons.testi {
   font-size: 10px;
@@ -246,7 +285,7 @@ img {
 #closeNav {
   background-color: transparent;
   border: none;
-  padding-bottom:10px;
+  padding-bottom: 10px;
   margin: 0 auto 0;
   display: block;
   font-size: 16px;
@@ -265,7 +304,8 @@ img {
   border-radius: 3px;
   color: white;
   border: 1px solid rgba(128, 128, 128, 0.548);
-  background-color: rgba(128, 128, 128, 0.358);;
+  background-color: rgba(128, 128, 128, 0.358);
+  ;
 }
 
 /*Class of popups*/
@@ -273,25 +313,26 @@ img {
   color: rgba(116, 116, 116, 0.651);
 }
 
-.material-symbols-outlined.drag{
+.material-symbols-outlined.drag {
   color: rgb(255, 255, 255);
 }
+
 /*--------------For mobile devices:------------------- */
 @media only screen and (max-width: 767px) {
-  html {
-    
-  }
+  html {}
+
   body {
     height: 99%;
 
   }
-  
+
   .right,
   .main {
     margin-left: auto;
     margin-right: auto;
   }
-/*Button menu on right side of the page*/
+
+  /*Button menu on right side of the page*/
   .right {
     order: 2;
     width: 100%;
@@ -304,22 +345,25 @@ img {
     margin: 0 auto 5px;
     display: inline-block;
   }
+
   /*#question-button is in .right-class div*/
-#question {
-  border: transparent;
-  background-color: transparent;
-  border-radius: 50%;
-  cursor: pointer;
-  display: block;
-  position: absolute;
-  top: 0px;
-  right: 0;
-  z-index: 5;
-}
-#question:hover {
-  background-color: rgba(105, 190, 119, 0.5);
-  border-color: rgba(105, 190, 119, 0.671);}
-  
+  #question {
+    border: transparent;
+    background-color: transparent;
+    border-radius: 50%;
+    cursor: pointer;
+    display: block;
+    position: absolute;
+    top: 0px;
+    right: 0;
+    z-index: 5;
+  }
+
+  #question:hover {
+    background-color: rgba(105, 190, 119, 0.5);
+    border-color: rgba(105, 190, 119, 0.671);
+  }
+
   .main,
   #img {
     order: 1;
@@ -346,7 +390,7 @@ img {
   .dragme {
     object-fit: scale-down;
     height: 100px;
-    width:100px;
+    width: 100px;
     max-width: 100%;
     left: 10%;
 
@@ -372,24 +416,25 @@ img {
   }
 
   .elements {
-  padding-top: 5px;
-  border-color: transparent;
-  margin: 0 auto 10px ;
-  display: block;
-  background-color: #adabab; 
-  color: white;
-  border-radius: 3px;
-  border: none;
-  text-align: 0 auto 0;
-  text-decoration: none;
-  font-size: 12px;
-  max-width: 90%;
+    padding-top: 5px;
+    border-color: transparent;
+    margin: 0 auto 10px;
+    display: block;
+    background-color: #adabab;
+    color: white;
+    border-radius: 3px;
+    border: none;
+    text-align: 0 auto 0;
+    text-decoration: none;
+    font-size: 12px;
+    max-width: 90%;
   }
 }
 
 input[type="file"] {
   display: none;
 }
+
 /*
 .rotation-handle {
   These are important for touch actions*/
@@ -447,11 +492,9 @@ input[type="file"] {
   width: 50px;
 }
 
-.fa-solid.fa-shirt {
- 
-}
+.fa-solid.fa-shirt {}
+
 svg {
   fill: rgba(116, 116, 116, 0.651);
 
 }
-

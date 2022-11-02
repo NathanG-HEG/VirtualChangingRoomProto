@@ -47,8 +47,8 @@
 -->
 
 </head>
-<body>
 
+<body>
   <div id="app">
     <script>
       //Loading animation
@@ -64,69 +64,60 @@
         });
       }
     </script>
-
     <div class="main">
       <!--This popup shows notifications-->
       <div id="popupMessage" class="animated">
         <span class="popuptext" id="myPopup">Notification</span>
       </div>
-      <div id="img">
+      <script>
+        //remove selected draggable element
+        $(document).on("click", "#deleteCBtn", function () {
+          //Create notification popup for 3 seconds
+          document.getElementById('myPopup').innerHTML = "The product has been deleted!";
+          $("#myPopup").fadeIn();
+          setTimeout(function () { $("#myPopup").fadeOut(); }, 3000);
 
-        <script>
-          //Block right click in img div 
-          /*Long press is right click in mobile devices and some devices don't recognize 
-          long press and dragging from each others*/
-          $("#img").bind("contextmenu", function (e) {
-            return false;
-          });
+          $(this).parent("div").remove();
 
-        </script>
-
-        <script>
-          //remove selected draggable element
-          $(document).on("click", "#deleteCBtn", function () {
-
-            //Create notification popup for 3 seconds
-            document.getElementById('myPopup').innerHTML = "The product has been deleted!";
-            $("#myPopup").fadeIn();
-            setTimeout(function () { $("#myPopup").fadeOut(); }, 3000);
-
-            $(this).parent("div").remove();
-
-          });
-
-        </script>
+        });
+      </script>
+      <div class="main__inner__box">
       </div>
     </div>
     <!--here is imagebuttons: add image from file system, delete image, open menu, take a 
     screenshot and help-button-->
     <div class="right">
-      <button class="buttons" id="fileBtn">
-        <label for="files" class="custom-file"><span class="material-symbols-outlined">
-            add_photo_alternate
-          </span>
-        </label>
-        <input id="files" type="file" name="image" id="file" onclick="choose()" />
-      </button>
-
-      <button type="button" class="buttons" id="deleteBtn" onclick="deleteImg()">
-        <span class="material-symbols-outlined"> delete </span>
-      </button>
-
-      <button type="button" class="buttons" id="openNav" onclick="openNav()">
-        <span class="material-symbols-outlined"> checkroom </span>
-      </button>
-
-      <button id="screenS" class="buttons" onclick="screenshot()">
-        <span class="material-symbols-outlined"> file_download </span>
-      </button>
-      <div id="small_buttons">
-        <button type="button" class="buttons" id="question" onclick="openPopUp()">
-          <span class="material-symbols-outlined"> question_mark </span>
+      <div class="title__box">
+        <h3>Magic Fitting Room</h3>
+      </div>
+      <div>
+        <button class="buttons" id="fileBtn">
+          <label for="files" class="custom-file"><span class="material-symbols-outlined">
+              add_photo_alternate
+            </span>
+          </label>
+          <input id="files" type="file" name="image" id="file" onclick="choose()" />
         </button>
+        <button type="button" class="buttons" id="deleteBtn" onclick="deleteImg()">
+          <span class="material-symbols-outlined"> delete </span>
+        </button>
+
+        <button type="button" class="buttons" id="openNav" onclick="openNav()">
+          <span class="material-symbols-outlined"> checkroom </span>
+        </button>
+
+        <button id="screenS" class="buttons" onclick="screenshot()">
+          <span class="material-symbols-outlined"> file_download </span>
+        </button>
+        <div id="small_buttons">
+          <button type="button" class="buttons" id="question" onclick="openPopUp()">
+            <span class="material-symbols-outlined"> question_mark </span>
+          </button>
+
+        </div>
+
       </div>
     </div>
-
     <!--Menu which includes all draggable clothes-->
     <div class="scrollableDiv" id="mySidebar">
       <div id="scrollableDivTitle">
@@ -135,7 +126,6 @@
             close</span></button>
       </div>
       <button id="goBack" onclick="goBack()">Back</button>
-
       <button class="elements" onclick="openWaterE()">Water</button>
       <div class="wdiv" id="wdiv">
         <ul class="imgList">
@@ -183,7 +173,6 @@
           <img src="clothes/Wood/sea_goddess_garland_sunny.png" id="sea-goddess-sunny" onclick="addClothes(this.id)" />
         </ul>
       </div>
-
       <button class="elements" onclick="openMetalE()">Metal</button>
       <div class="mdiv" id="mdiv">
         <ul class="imgList">
@@ -247,7 +236,6 @@
       September 1, 2024.</p>
     <button id="allowPrivacyPolicy" onclick="allowPrivacyPolicy()">Allow</button>
   </div>
-
 </body>
 
 </html>
