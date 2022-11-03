@@ -62,19 +62,24 @@ h2 {
   float: right;
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
+  align-items: center;
   justify-content: center;
-  margin: 3em 6em 3em 3em;
+  margin: 3em 0 3em 3em;
 }
 
 .title__box {
   background-image: url(main-background.jpg);
-  padding: 2em 5em 2em 5em;
+  padding: 2em 10em 2em 10em;
   mix-blend-mode: normal;
   filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
   border-radius: 135.5px;
 }
 
+#title__heading {
+  font-size: 30px;
+  letter-spacing: 2.5px;
+  font-weight: 700;
+}
 
 #question:hover {
   background-color: rgba(105, 190, 119, 0.5);
@@ -220,33 +225,41 @@ h2 {
   padding-left: 0px;
 }
 
-img {
+#img {
   border-color: transparent;
   border: 0px solid transparent;
 }
 
 /*.buttons class is buttons in .right-div*/
+
+.btn__container {
+  margin: 1.5em;
+}
+
 .buttons {
   border: 1.5px solid rgba(112, 112, 112, 0.192);
-  background-color: white;
+  background-image: url("main-background.jpg");
   border-radius: 50%;
   cursor: pointer;
-  width: 93px;
-  height: 130px;
+  width: 120px;
+  height: 100px;
   cursor: pointer;
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 2em 0 0 10em;
-  margin-left: 10em;
+  margin: 1.2em 0 0 0;
   box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
 
-.buttons:hover {
+.icons {
+  font-size: 25px;
+}
+
+/*.buttons:hover {
   background-color: rgba(105, 190, 119, 0.5);
   border-color: rgba(105, 190, 119, 0.671);
 }
-
+*/
 /*#question-button is in .right-class div*/
 #question {
   border: transparent;
@@ -372,6 +385,7 @@ img {
   }
 
   .buttons {
+    background-image: url("main-background.jpg");
     width: 60px !important;
     height: 60px !important;
     border-radius: 50% !important;
@@ -382,10 +396,11 @@ img {
     display: flex;
   }
 
-  .buttons:hover {
+  /*.buttons:hover {
     background-color: rgba(105, 190, 119, 0.5);
     border-color: rgba(105, 190, 119, 0.671);
   }
+  */
 
   .dragme {
     object-fit: scale-down;
