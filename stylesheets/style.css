@@ -180,28 +180,17 @@ h2 {
 
 /*elements buttons in menu*/
 .elements {
-  padding-top: 10px;
-  border-color: transparent;
   margin: 0 auto 10px;
   display: block;
-  background-color: #adabab;
-  color: white;
-  border-radius: 3px;
+  background: url("main-background.jpg");
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
   border: none;
-  padding: 15px 0px 15px 0px;
-  width: 166px;
-  text-align: center;
-  text-decoration: none;
-  font-size: 16px;
-  cursor: pointer;
 }
 
 .elements button {
   justify-items: center;
-}
-
-.elements:active {
-  border: 1px solid rgba(128, 128, 128, 0.559);
 }
 
 .elements img {
@@ -211,8 +200,10 @@ h2 {
 
 /* .imgList is list of images (clothes)*/
 .imgList {
-  width: 100%;
+  width: 30%;
+  display: block;
   padding: 1px;
+  margin: 0 auto 0;
 }
 
 .imgList img {
@@ -250,6 +241,7 @@ h2 {
 
 .icons {
   font-size: 25px;
+  color: black;
 }
 
 /*.buttons:hover {
@@ -275,11 +267,12 @@ h2 {
 
 /*Open and close div with clothes*/
 .scrollableDiv {
-  height: 97%;
+  height: 50%;
   width: 0%;
   position: absolute;
   z-index: 1;
-  top: 5;
+  top: 300px;
+  right: 200px;
   float: right;
   background-color: rgba(128, 128, 128, 0.205);
   backdrop-filter: blur(3px);
@@ -291,16 +284,15 @@ h2 {
   cursor: pointer;
 }
 
-/*Button in top of clothes list*/
 #closeNav {
-  background-color: transparent;
-  border: none;
-  padding-bottom: 10px;
-  margin: 0 auto 0;
   display: block;
-  font-size: 16px;
+  margin: 10px auto;
+  color: black;
+  border: 1px solid rgba(128, 128, 128, 0.548);
   cursor: pointer;
-  border-radius: 2px;
+  background-image: url("main-background.jpg");
+  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+  border-radius: 50%;
 }
 
 #scrollableDivTitle button {
@@ -310,12 +302,19 @@ h2 {
 /*Back- button*/
 #goBack {
   display: none;
+  top: 700px;
+  right: 530px;
+  position: fixed;
   margin: 0 auto 0;
-  border-radius: 3px;
-  color: white;
+  color: black;
   border: 1px solid rgba(128, 128, 128, 0.548);
-  background-color: rgba(128, 128, 128, 0.358);
-  ;
+  width: 48px;
+  height: 48px;
+  cursor: pointer;
+  background-image: url("main-background.jpg");
+  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+  border-radius: 50%;
+  z-index: 5;
 }
 
 /*Class of popups*/
@@ -425,21 +424,6 @@ h2 {
     height: auto;
     overflow-x: hide;
     padding: 1px;
-  }
-
-  .elements {
-    padding-top: 5px;
-    border-color: transparent;
-    margin: 0 auto 10px;
-    display: block;
-    background-color: #adabab;
-    color: white;
-    border-radius: 3px;
-    border: none;
-    text-align: 0 auto 0;
-    text-decoration: none;
-    font-size: 12px;
-    max-width: 90%;
   }
 }
 

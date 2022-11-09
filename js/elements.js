@@ -1,13 +1,24 @@
 
 //openNav shows side menu (clothes)
 function openNav() {
-    document.getElementById("mySidebar").style.width = "20%";
+    document.getElementById('mySidebar').style.width = "20%";
+    document.getElementById('openNav').style.display = "none";
+    document.getElementById('deleteBtn').style.display = "none";
+    document.getElementById('fileBtn').style.display = "none";
+    document.getElementById('screenS').style.display = "none";
+    document.getElementById('question').style.display = "none";
     console.log("open menu");
+    
 }
 
 //closeNav closes side menu (clothes) with button
 function closeNav() {
     document.getElementById("mySidebar").style.width = "0%";
+    document.getElementById('openNav').style.display = "block";
+    document.getElementById('deleteBtn').style.display = "block";
+    document.getElementById('fileBtn').style.display = "block";
+    document.getElementById('screenS').style.display = "block";
+    document.getElementById('question').style.display = "block";
     console.log("sulje menu");
 }
 

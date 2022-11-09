@@ -45,6 +45,23 @@
   WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 -->
 
+<!-- Zoltan changes 09.11.22 
+    
+  - Privacy popup alert changed to be smaller, and easier.
+  - Side navigation moved from left to right
+  - Side navigation buttons got the design and the element icons.
+  - Side navigation got smaller, moved to the window and also if you open the sidenav the home screen buttons will be hidden. (display: none)
+  - Back and Close button got the design and changed the positions also.
+
+  !!  KNOWS BUGS !!
+
+  - The side navigation back button moved outside from the scrollableDiv, so if you press on it,
+  it will detect as an outside click from the window so it close the navigation bar.
+
+  !!  KNOWS BUGS !!
+
+-->
+
 </head>
 
 <body>
@@ -112,14 +129,14 @@
       </div>
     </div>
     <!--Menu which includes all draggable clothes-->
+    <button id="goBack" onclick="goBack()"><i class="icons fa-solid fa-arrow-left"></i></button>
     <div class="scrollableDiv" id="mySidebar">
       <div id="scrollableDivTitle">
-        <button id="closeNav" class="closeNav" onclick="closeNav()" style="position: sticky"><span
-            class="material-symbols-outlined">
-            close</span></button>
+        <button id="closeNav" class="closeNav" onclick="closeNav()" style="position: sticky">
+          <i class="icons fa-solid fa-xmark"></i>
+        </button>
       </div>
-      <button id="goBack" onclick="goBack()">Back</button>
-      <button class="elements" onclick="openWaterE()">Water</button>
+      <button class="elements" onclick="openWaterE()"><i class="icons fa-solid fa-droplet"></i></button>
       <div class="wdiv" id="wdiv">
         <ul class="imgList">
           <img src="clothes/Water/Ainikki-blue.png" id="ainikki-blue" onclick="addClothes(this.id)" />
@@ -138,7 +155,7 @@
         </ul>
       </div>
 
-      <button class="elements" onclick="openFireE()">Fire</button>
+      <button class="elements" onclick="openFireE()"><i class="icons fa-solid fa-fire"></i></button>
       <div class="fdiv" id="fdiv">
         <ul class="imgList">
           <img src="clothes/Fire/aiti_meri_punainen.png" id="mother-sea-red" onclick="addClothes(this.id)" />
@@ -154,7 +171,7 @@
         </ul>
       </div>
 
-      <button class="elements" onclick="openWoodE()">Wood</button>
+      <button class="elements" onclick="openWoodE()"><i class="icons fa-solid fa-tree"></i></button>
       <div class="wooddiv" id="wooddiv">
         <ul class="imgList">
           <img src="clothes/Wood/lehti_korvis.png" id="leaf_green" onclick="addClothes(this.id)" />
@@ -166,7 +183,7 @@
           <img src="clothes/Wood/sea_goddess_garland_sunny.png" id="sea-goddess-sunny" onclick="addClothes(this.id)" />
         </ul>
       </div>
-      <button class="elements" onclick="openMetalE()">Metal</button>
+      <button class="elements" onclick="openMetalE()"><i class="icons fa-solid fa-atom"></i></button>
       <div class="mdiv" id="mdiv">
         <ul class="imgList">
           <img src="clothes/Metal/alku_kult.png" id="alku-gold" onclick="addClothes(this.id)" />
@@ -182,7 +199,7 @@
         </ul>
       </div>
 
-      <button class="elements" onclick="openEarthE()">Earth</button>
+      <button class="elements" onclick="openEarthE()"><i class="icons fa-solid fa-earth-americas"></i></button>
       <div class="ediv" id="ediv">
         <ul class="imgList">
           <img src="clothes/Earth/heimo_korvakorut_puunhenki.png" id="heimo-ear-puuhenki"
@@ -227,7 +244,7 @@
       study will only be available to the researchers of
       the project and will be destroyed no later than
       September 1, 2024.</p>
-    <button id="allowPrivacyPolicy" onclick="allowPrivacyPolicy()">Allow</button>
+    <button id="allowPrivacyPolicy" onclick="allowPrivacyPolicy()">Accept</button>
   </div>
 </body>
 
