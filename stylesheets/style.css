@@ -33,7 +33,7 @@ h2 {
 
 /*main -div have #img div inside of it*/
 .main {
-  background: url("main-background.jpg");
+  background: url("woodtx.jpg");
   background-size: cover;
   background-repeat: no-repeat;
   position: absolute;
@@ -52,7 +52,6 @@ h2 {
   width: 95%;
   height: 95%;
   border-radius: 116px;
-  opacity: 70%;
 }
 
 /*Div->Button menu on right side of the page*/
@@ -66,7 +65,7 @@ h2 {
 }
 
 .title__box {
-  background-image: url("main-background.jpg");
+  background-image: url("woodtx.jpg");
   padding: 2em 10em 2em 10em;
   mix-blend-mode: normal;
   filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
@@ -77,6 +76,9 @@ h2 {
   font-size: 30px;
   letter-spacing: 2.5px;
   font-weight: 700;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  color: #FFFAFA;
+  font-style: italic;
 }
 
 #question:hover {
@@ -180,11 +182,11 @@ h2 {
 
 /*elements buttons in menu*/
 .elements {
-  margin: 0 auto 10px;
+  margin: 0 auto 20px;
   display: block;
-  background: url("main-background.jpg");
-  width: 60px;
-  height: 60px;
+  background: url("woodtx.jpg");
+  width: 120px;
+  height: 100px;
   border-radius: 50%;
   border: none;
 }
@@ -226,7 +228,7 @@ h2 {
 
 .buttons {
   border: 1.5px solid rgba(112, 112, 112, 0.192);
-  background-image: url("main-background.jpg");
+  background-image: url("woodtx.jpg");
   border-radius: 50%;
   cursor: pointer;
   width: 120px;
@@ -241,7 +243,7 @@ h2 {
 
 .icons {
   font-size: 25px;
-  color: black;
+  color: #FFFAFA;
 }
 
 /*.buttons:hover {
@@ -267,11 +269,11 @@ h2 {
 
 /*Open and close div with clothes*/
 .scrollableDiv {
-  height: 50%;
+  height: 70%;
   width: 0%;
   position: absolute;
   z-index: 1;
-  top: 300px;
+  top: 190px;
   right: 200px;
   float: right;
   background-color: rgba(128, 128, 128, 0.205);
@@ -290,7 +292,7 @@ h2 {
   color: black;
   border: 1px solid rgba(128, 128, 128, 0.548);
   cursor: pointer;
-  background-image: url("main-background.jpg");
+  background-image: url("woodtx.jpg");
   filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
   border-radius: 50%;
 }
@@ -311,7 +313,7 @@ h2 {
   width: 48px;
   height: 48px;
   cursor: pointer;
-  background-image: url("main-background.jpg");
+  background-image: url("woodtx.jpg");
   filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
   border-radius: 50%;
   z-index: 5;
@@ -383,7 +385,7 @@ h2 {
   }
 
   .buttons {
-    background-image: url("main-background.jpg");
+    background-image: url("woodtx.jpg");
     width: 60px !important;
     height: 60px !important;
     border-radius: 50% !important;
@@ -392,6 +394,7 @@ h2 {
     position: relative;
     z-index: 700;
     display: flex;
+    color:rgb(255, 255, 255);
   }
 
   /*.buttons:hover {
