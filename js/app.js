@@ -38,7 +38,6 @@ function choose() {
         });
         reader.readAsDataURL(this.files[0]);
     });
-    console.log("ulkona kuvan lisäyksestä");
 }
 
 //remove background image

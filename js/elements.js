@@ -2,6 +2,7 @@
 //openNav shows side menu (clothes)
 function openNav() {
     document.getElementById('mySidebar').style.width = "20%";
+    document.getElementById('mySidebar').style.border = "6px solid lightgrey";
     document.getElementById('openNav').style.display = "none";
     document.getElementById('deleteBtn').style.display = "none";
     document.getElementById('fileBtn').style.display = "none";
@@ -14,6 +15,7 @@ function openNav() {
 //closeNav closes side menu (clothes) with button
 function closeNav() {
     document.getElementById("mySidebar").style.width = "0%";
+    document.getElementById('mySidebar').style.border = "none";
     document.getElementById('openNav').style.display = "block";
     document.getElementById('deleteBtn').style.display = "block";
     document.getElementById('fileBtn').style.display = "block";
